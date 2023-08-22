@@ -22,7 +22,7 @@ class DialogueCharacter extends FlxSprite
 
 	public function new(characterData:CharacterData)
 	{
-		loadGraphic('assets/images/' + characterData.image);
+		loadGraphic(game.AssetsPaths.getPath('images/' + characterData.image));
 
 		x = characterData.position[0];
 		y = characterData.position[1];
@@ -48,7 +48,7 @@ class DialogueBox extends FlxGroup
 
 	public function new()
 	{
-		var box:FlxSprite = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic('assets/images/dial-box.png');
+		var box:FlxSprite = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(game.AssetsPaths.getPath('images/dial-box.png'));
 		add(box);
 
 		dialogueText = new FlxText(50, 50, 700, "");
@@ -125,7 +125,7 @@ class DialogueBox extends FlxGroup
 
 	public function loadCharacterData(characterName:String):CharacterData
 	{
-		var characterDataPath:String = "assets/data/dialogues/characters/" + characterName + ".json";
+		var characterDataPath:String = game.AssetsPaths.getPath("data/dialogues/characters/" + characterName + ".json");
 		if (FileSystem.exists(characterDataPath))
 		{
 			var jsonContent:String = File.getContent(characterDataPath);
