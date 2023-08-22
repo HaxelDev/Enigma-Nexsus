@@ -95,6 +95,6 @@ class ModCreatorState extends FlxState
 		var jsonContent:String = Json.stringify(modJson, null);
 		File.saveContent(modPath + "/mod.json", jsonContent);
 
-		FlxG.switchState(new game.MenuState());
+		FlxG.switchState(new game.ModState());
 	}
 }
