@@ -15,6 +15,7 @@ flixel-addons
 flixel-ui
 ```
 Type `haxelib install [library]` for each of those libs, so like: `haxelib install flixel`.
+
 You should have everything ready for compiling the game! Follow the guide below to continue!
 
 ## Mod Support
@@ -31,7 +32,7 @@ Enigma-Nexsus is developed by [HaxelDev](https://github.com/HaxelDev).
 
 ## License
 
-This project is licensed under the [License](LICENSE).
+This project is licensed under the [Apache License](LICENSE).
 
 ---
 
