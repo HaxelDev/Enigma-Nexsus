@@ -9,8 +9,10 @@ class ModState extends FlxState
 {
 	var modListText:FlxText;
 	var modInfoText:FlxText;
+	var modCreatorButton:FlxText;
 	var backButton:FlxText;
 	var selectedModIndex:Int = 0;
+	var selectedButtonIndex:Int = 0;
 	var mods:Array<ModJson>;
 
 	override public function create():Void
@@ -20,11 +22,15 @@ class ModState extends FlxState
 		add(modListText);
 
 		modInfoText = new FlxText(FlxG.width * 0.5 - 200, FlxG.height * 0.4, 400, "");
-		modInfoText.setFormat(null, 24, 0xFFFFFF, "center");
+		modInfoText.setFormat(null, 24, (selectedButtonIndex == 0) ? 0xFFFF00 : 0xFFFFFF, "center");
 		add(modInfoText);
 
+		modCreatorButton = new FlxText(FlxG.width * 0.5 - 100, FlxG.height * 0.65, 200, "Create Mod");
+		modCreatorButton.setFormat(null, 24, (selectedButtonIndex == 1) ? 0xFFFF00 : 0xFFFFFF, "center");
+		add(modCreatorButton);
+
 		backButton = new FlxText(FlxG.width * 0.5 - 100, FlxG.height * 0.7, 200, "Back to Menu");
-		backButton.setFormat(null, 24, 0xFFFFFF, "center");
+		backButton.setFormat(null, 24, (selectedButtonIndex == 2) ? 0xFFFF00 : 0xFFFFFF, "center");
 		add(backButton);
 
 		mods = Mods.mods;
@@ -37,52 +43,47 @@ class ModState extends FlxState
 	{
 		if (FlxG.keys.justPressed.DOWN)
 		{
-			selectedModIndex = (selectedModIndex + 1) % (mods.length + 1);
+			selectedButtonIndex = (selectedButtonIndex + 1) % 3;
+			updateButtonColors();
 		}
 		else if (FlxG.keys.justPressed.UP)
 		{
-			selectedModIndex = (selectedModIndex - 1 + (mods.length + 1)) % (mods.length + 1);
+			selectedButtonIndex = (selectedButtonIndex - 1 + 3) % 3;
+			updateButtonColors();
 		}
-		else if (FlxG.keys.justPressed.LEFT)
+
+		if (selectedButtonIndex == 0)
 		{
-			selectedModIndex = (selectedModIndex - 1 + (mods.length + 1)) % (mods.length + 1);
-			if (selectedModIndex == mods.length)
+			if (FlxG.keys.justPressed.LEFT)
 			{
-				selectedModIndex = mods.length - 1;
+				selectedModIndex = (selectedModIndex - 1 + (mods.length + 1)) % (mods.length + 1);
+				if (selectedModIndex == mods.length)
+				{
+					selectedModIndex = mods.length - 1;
+				}
+				showModInfo();
 			}
-			showModInfo();
-		}
-		else if (FlxG.keys.justPressed.RIGHT)
-		{
-			selectedModIndex = (selectedModIndex + 1) % (mods.length + 1);
-			if (selectedModIndex == mods.length)
+			else if (FlxG.keys.justPressed.RIGHT)
 			{
-				selectedModIndex = 0;
+				selectedModIndex = (selectedModIndex + 1) % (mods.length + 1);
+				if (selectedModIndex == mods.length)
+				{
+					selectedModIndex = 0;
+				}
+				showModInfo();
 			}
-			showModInfo();
 		}
 
 		if (FlxG.keys.justPressed.ENTER)
 		{
-			if (selectedModIndex < mods.length)
+			if (selectedButtonIndex == 1)
 			{
-				// showModInfo();
+				FlxG.switchState(new game.ModCreatorState());
 			}
-			else
+			else if (selectedButtonIndex == 2)
 			{
 				FlxG.switchState(new game.MenuState());
 			}
-		}
-
-		if (selectedModIndex < mods.length)
-		{
-			modInfoText.color = 0xFFFF00;
-			backButton.color = 0xFFFFFF;
-		}
-		else
-		{
-			modInfoText.color = 0xFFFFFF;
-			backButton.color = 0xFFFF00;
 		}
 
 		super.update(elapsed);
@@ -102,5 +103,12 @@ class ModState extends FlxState
 		{
 			modInfoText.text = "No mods found.";
 		}
+	}
+
+	function updateButtonColors():Void
+	{
+		modInfoText.color = (selectedButtonIndex == 0) ? 0xFFFF00 : 0xFFFFFF;
+		modCreatorButton.color = (selectedButtonIndex == 1) ? 0xFFFF00 : 0xFFFFFF;
+		backButton.color = (selectedButtonIndex == 2) ? 0xFFFF00 : 0xFFFFFF;
 	}
 }
