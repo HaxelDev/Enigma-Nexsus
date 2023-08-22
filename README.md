@@ -31,7 +31,7 @@ Enigma-Nexsus is developed by [HaxelDev](https://github.com/HaxelDev).
 
 ## License
 
-This project is licensed under the [License](LICENSE).
+This project is licensed under the [Apache License](LICENSE).
 
 ---
 
