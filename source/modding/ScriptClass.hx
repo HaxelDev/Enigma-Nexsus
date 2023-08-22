@@ -13,8 +13,10 @@ class ScriptClass
 	{
 		interp = new InterpEx();
 		parser = new ParserEx();
+
 		instance = interp.createScriptClassInstance(name);
 		interp.registerModule(parser.parseModule(game.AssetsPaths.getPath("data/" + contents + ".hx")));
+
 		instance.create();
 	}
 }
