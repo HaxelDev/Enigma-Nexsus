@@ -43,6 +43,8 @@
 
 	<haxelib name="hscript-improved" />
 
+	<haxelib name="hscript-ex" />
+
 	<haxedef name="hscriptPos" />
 	<haxeflag name="-dce" value="no"/>
 
