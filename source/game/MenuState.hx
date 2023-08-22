@@ -56,8 +56,7 @@ class MenuState extends FlxState
 			}
 			else if (selectedOption == 1)
 			{
-				// For now, I'm not adding mod support. After the beta, I will provide it.
-				FlxG.switchState(new game.SoonState());
+				FlxG.switchState(new game.ModState());
 			}
 			else if (selectedOption == 2)
 			{

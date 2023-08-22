@@ -18,17 +18,9 @@ Type `haxelib install [library]` for each of those libs, so like: `haxelib insta
 
 You should have everything ready for compiling the game! Follow the guide below to continue!
 
-## Mod Support
-
-Enigma-Nexsus will feature mod support, allowing players to create and share their own content. This feature will be available after the beta phase. Stay tuned for updates!
-
 ## Getting Involved
 
 If you're interested in contributing to Enigma-Nexsus or have ideas for improvements, feel free to fork the repository and submit pull requests. We welcome contributions from the community!
-
-## Credits
-
-Enigma-Nexsus is developed by [HaxelDev](https://github.com/HaxelDev).
 
 ## License
 
