@@ -2,14 +2,6 @@
 
 Welcome to the Enigma-Nexsus Repository!
 
-## Features
-
-- Engaging storyline with captivating dialogues and characters.
-- Customizable controls to suit your preferences.
-- Mod support for extending and enhancing the gameplay experience (mod support will be available after the beta phase).
-- Exciting combat mechanics and boss battles.
-- Interactive dialogue system that immerses you in the narrative.
-
 ## Installation
 
 First you need to install Haxe and HaxeFlixel.
