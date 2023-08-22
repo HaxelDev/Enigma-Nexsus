@@ -8,8 +8,8 @@ import sys.io.File;
 
 class ShaderCode
 {
-	var shader:Shader;
-	var filter:ShaderFilter;
+	public var shader:Shader;
+	public var filter:ShaderFilter;
 
 	public function new(shaderName:String)
 	{
