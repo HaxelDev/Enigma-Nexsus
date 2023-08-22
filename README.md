@@ -15,6 +15,7 @@ flixel-addons
 flixel-ui
 ```
 Type `haxelib install [library]` for each of those libs, so like: `haxelib install flixel`.
+
 You should have everything ready for compiling the game! Follow the guide below to continue!
 
 ## Mod Support
