@@ -16,7 +16,13 @@ class ScriptClass
 
 		instance = interp.createScriptClassInstance(name);
 		interp.registerModule(parser.parseModule(game.AssetsPaths.getPath("data/" + contents + ".hx")));
+		setVariables();
 
 		instance.create();
+	}
+
+	public function setVariables():Void
+	{
+		interp.variables.set("FlxG", flixel.FlxG);
 	}
 }
