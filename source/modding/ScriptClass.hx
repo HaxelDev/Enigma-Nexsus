@@ -1,18 +1,20 @@
 package modding;
 
-import haxe.Resource;
 import hscript.InterpEx;
+import hscript.ParserEx;
 
 class ScriptClass
 {
 	public var interp:InterpEx;
+	public var parser:ParserEx;
 	public var instance:Dynamic;
 
 	public function new(name:String, contents:String)
 	{
 		interp = new InterpEx();
+		parser = new ParserEx();
 		instance = interp.createScriptClassInstance(name);
-		interp.addModule(Resource.getString(game.AssetsPaths.getPath("data/" + contents + ".hx")));
+		interp.registerModule(parser.parseModule(game.AssetsPaths.getPath("data/" + contents + ".hx")));
 		instance.create();
 	}
 }
