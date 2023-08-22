@@ -49,4 +49,16 @@ class Mods
 		}
 		return folders;
 	}
+
+	public static function getPath(filePath:String):String
+	{
+		for (mod in getModFolders())
+		{
+			if (FileSystem.exists("mods/" + mod + "/" + filePath))
+			{
+				return "mods/" + mod + "/" + filePath;
+			}
+		}
+		return null;
+	}
 }
