@@ -12,6 +12,7 @@ class ScriptClass
 		interp = new InterpEx();
 		instance = interp.createScriptClassInstance(name);
 		interp.addModule(game.AssetsPaths.getPath("data/" + contents + ".hx"));
+		interp.allowStaticVariables = interp.allowPublicVariables = true;
 		setVariables();
 		instance.create();
 	}
