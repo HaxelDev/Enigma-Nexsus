@@ -13,13 +13,13 @@ Second, you need to install the additional libraries, a fully updated list will 
 flixel
 flixel-addons
 flixel-ui
+hscript-ex
 ```
 Type `haxelib install [library]` for each of those libs, so like: `haxelib install flixel`.
 
 You'll also need to install a couple things that involve Gits. To do this, you need to do a few things first.
 1. Download [git-scm](https://git-scm.com/downloads). Works for Windows, Mac, and Linux, just select your build.
 2. Run `haxelib git hscript https://github.com/FNF-CNE-Devs/hscript-improved.git` to install Hscript.
-3. Run `haxelib git hscript-ex https://github.com/HaxelDev/hscript-ex.git` to install Hscript-Ex.
 
 You should have everything ready for compiling the game! Follow the guide below to continue!
 
