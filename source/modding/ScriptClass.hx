@@ -11,10 +11,9 @@ class ScriptClass
 	{
 		interp = new InterpEx();
 		instance = interp.createScriptClassInstance(name);
-		interp.addModule(game.AssetsPaths.getPath("data/" + contents + ".hx"));
+		interp.addModule(game.AssetsPaths.getPath("classes/" + contents + ".hx"));
 		interp.allowStaticVariables = interp.allowPublicVariables = true;
 		setVariables();
-		instance.create();
 	}
 
 	public function setVariables():Void
@@ -30,5 +29,10 @@ class ScriptClass
 		interp.variables.set("FlxTilemap", flixel.tile.FlxTilemap);
 		interp.variables.set("FlxEmitter", flixel.effects.particles.FlxEmitter);
 		interp.variables.set("FlxSound", flixel.system.FlxSound);
+	}
+
+	public function createFunction()
+	{
+		instance.create();
 	}
 }
