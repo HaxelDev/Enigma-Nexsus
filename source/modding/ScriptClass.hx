@@ -5,12 +5,10 @@ import hscript.InterpEx;
 class ScriptClass
 {
 	public var interp:InterpEx;
-	public var instance:Dynamic;
 
-	public function new(name:String, contents:String)
+	public function new(contents:String)
 	{
 		interp = new InterpEx();
-		instance = interp.createScriptClassInstance(name);
 		interp.addModule(game.AssetsPaths.getPath("classes/" + contents + ".hx"));
 		interp.allowStaticVariables = interp.allowPublicVariables = true;
 		setVariables();
@@ -31,8 +29,9 @@ class ScriptClass
 		interp.variables.set("FlxSound", flixel.system.FlxSound);
 	}
 
-	public function createFunction()
+	public function createFunction(name:String)
 	{
+		var instance = interp.createScriptClassInstance(name);
 		instance.create();
 	}
 }

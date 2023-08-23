@@ -21,7 +21,7 @@ class Script
 		parser.allowJSON = true;
 		parser.allowMetadata = true;
 
-		var scriptFilePath:String = game.AssetsPaths.getPath("data/" + scriptName + ".hx");
+		var scriptFilePath:String = game.AssetsPaths.getPath("scripts/" + scriptName + ".hx");
 		if (FileSystem.exists(scriptFilePath))
 		{
 			var scriptCode:String = File.getContent(scriptFilePath);
