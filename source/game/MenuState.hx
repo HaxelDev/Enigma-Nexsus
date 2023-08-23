@@ -44,11 +44,6 @@ class MenuState extends FlxState
 			selectedOption = (selectedOption - 1 + 3) % 3;
 		}
 
-		if (FlxG.keys.justPressed.C)
-		{
-			testScriptClass();
-		}
-
 		storyOption.color = (selectedOption == 0) ? 0xFFFF00 : 0xFFFFFF;
 		modsOption.color = (selectedOption == 1) ? 0xFFFF00 : 0xFFFFFF;
 		optionsOption.color = (selectedOption == 2) ? 0xFFFF00 : 0xFFFFFF;
@@ -70,14 +65,5 @@ class MenuState extends FlxState
 		}
 
 		super.update(elapsed);
-	}
-
-	function testScriptClass()
-	{
-		if (sys.FileSystem.exists(game.AssetsPaths.getPath("classes/MyClass.hx")))
-		{
-			var scriptClass:modding.ScriptClass = new modding.ScriptClass("MyClass");
-			scriptClass.createFunction("MyClass");
-		}
 	}
 }
