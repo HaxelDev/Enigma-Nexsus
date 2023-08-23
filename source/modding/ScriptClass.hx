@@ -1,6 +1,5 @@
 package modding;
 
-import game.AssetsPaths;
 import hscript.InterpEx;
 import hscript.ParserEx;
 
