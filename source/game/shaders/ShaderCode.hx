@@ -19,9 +19,7 @@ class ShaderCode
 		{
 			var shaderData:ByteArray = new ByteArray();
 			shaderData.writeUTFBytes(fragmentCode);
-
 			shader = new Shader(shaderData);
-
 			filter = new ShaderFilter(shader);
 		}
 		else
