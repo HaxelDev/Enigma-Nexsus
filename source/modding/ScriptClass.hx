@@ -1,7 +1,6 @@
 package modding;
 
 import hscript.InterpEx;
-import hscript.ParserEx;
 
 class ScriptClass
 {
